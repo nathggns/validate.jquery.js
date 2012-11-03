@@ -102,6 +102,12 @@
 			var $this = $(this),
 				$inputs = $this.find('input');
 
+			$inputs = $inputs.filter(function() {
+				var $this = $(this);
+
+				return $this.attr('data-verify') || typeof opts.checks[$this.attr('name')] !== 'undefined';
+			});
+
 			$inputs.each(function() {
 				
 				var $this = $(this);
