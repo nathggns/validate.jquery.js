@@ -148,7 +148,15 @@
 				checkArray.push(func);
 				checks.set(this, checkArray);
 				$this.on('change keydown keyup keypress blur', function(e) {
+
+					var d = data.get(this) || {};
+					d['used'] = true;
+					data.set(this, d);
+
 					$inputs.each(function() {
+						var d = data.get(this);
+						if (!d || !d['used']) return false;
+
 						handler.call(this, e);
 					});
 				});

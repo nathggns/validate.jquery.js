@@ -8,7 +8,7 @@
 <body>
     <form method="get" action="test.html">
         <strong>Master</strong> <input type="text" data-verify="not_empty email" id="master"><br>
-        <strong>Clone</strong> <input type="text" data-verify="master" id="clone">
+        <strong>Clone</strong> <input type="text" data-verify="not_empty" id="clone">
 
         <input type="submit">
     </form>
@@ -32,17 +32,6 @@
             // Custom 'cancel' event
             cancel: function() {
                 $text.text('Do it right, please. ' + Math.floor(Math.random() * 10));
-            },
-
-
-            // Custom validations
-            funcs: {
-
-                // Our same as master validation
-                master: function(text) {
-                    return text === $master.val();
-                }
-
             }
 
         });
@@ -58,6 +47,7 @@
 
     .failed {
         color: red;
+        background: blue;
     }
 
     </style>
