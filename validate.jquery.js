@@ -1,4 +1,4 @@
-	(function(window, document, $, undefined) {
+(function(window, document, $, undefined) {
 
 	// Store object
 	var Store = (function() {
@@ -147,7 +147,7 @@
 
 				checkArray.push(func);
 				checks.set(this, checkArray);
-				$this.on('change keydown keyup keypress focus blur', function(e) {
+				$this.on('change keydown keyup keypress blur', function(e) {
 					$inputs.each(function() {
 						handler.call(this, e);
 					});
