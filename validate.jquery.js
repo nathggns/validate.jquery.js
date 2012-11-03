@@ -147,7 +147,11 @@
 
 				checkArray.push(func);
 				checks.set(this, checkArray);
-				$this.on('change keydown keyup keypress focus blur', handler);
+				$this.on('change keydown keyup keypress focus blur', function(e) {
+					$inputs.each(function() {
+						handler.call(this, e);
+					});
+				});
 			});
 
 			if (opts.preventSubmit) {

@@ -7,8 +7,9 @@
 </head>
 <body>
     <form method="get" action="test.html">
-        <strong>Master</strong>
-        <input type="text" data-verify="not_empty email" id="master" value="blah">
+        <strong>Master</strong> <input type="text" data-verify="not_empty email" id="master"><br>
+        <strong>Clone</strong> <input type="text" data-verify="master" id="clone">
+
         <input type="submit">
     </form>
     
@@ -23,6 +24,7 @@
         var $form = $('form');
         var $master = $('#master');
         var $text = $('p');
+        var $clone = $('#clone');
 
         // Lets do this
         $form.validate({
@@ -30,11 +32,34 @@
             // Custom 'cancel' event
             cancel: function() {
                 $text.text('Do it right, please. ' + Math.floor(Math.random() * 10));
+            },
+
+
+            // Custom validations
+            funcs: {
+
+                // Our same as master validation
+                master: function(text) {
+                    return text === $master.val();
+                }
+
             }
 
         });
     });
 
     </script>
+
+    <style type="text/css">
+
+    .passed {
+        color: green;
+    }
+
+    .failed {
+        color: red;
+    }
+
+    </style>
 </body>
 </html>
