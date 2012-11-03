@@ -1,4 +1,4 @@
-(function(window, document, $, undefined) {
+	(function(window, document, $, undefined) {
 
 	// Store object
 	var Store = (function() {
@@ -35,8 +35,8 @@
 		return Store;
 	}());
 
-	$.validate = function() {
-		$('*').validate.apply(this, arguments);
+	$.validate = function(opts) {
+		return $('*').validate(opts);
 	};
 
 	$.validate._defaults = {
