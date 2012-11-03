@@ -35,7 +35,11 @@
 		return Store;
 	}());
 
-	var defaults = {
+	$.validate = function() {
+		$('*').validate.apply(this, arguments);
+	};
+
+	$.validate._defaults = {
 		passed: 'passed',
 		failed: 'failed',
 		success: function(opts) {
@@ -65,7 +69,10 @@
 		preventSubmit: true
 	};
 
+	$.validate.defaults = {};
+
 	$.fn.validate = function(opts) {
+		var defaults = $.extend(true, $.validate._defaults, $.validate.defaults);
 		opts = $.extend(true, defaults, opts);
 		var checks = new Store();
 		var data = new Store();
