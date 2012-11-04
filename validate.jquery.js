@@ -114,7 +114,7 @@
 				var name = $this.attr('name');
 				var checkArray = checks.get(this) || [];
 				var checksString = typeof opts.checks[name] === 'undefined' ? $this.data('verify') : opts.checks[name];
-				if (!checksString) return false;
+				if (!checksString) return true;
 				var func;
 
 				if (typeof checksString !== 'string') {
@@ -147,18 +147,25 @@
 
 				checkArray.push(func);
 				checks.set(this, checkArray);
-				$this.on('change keyup blur', function(e) {
+			}).on('change keyup blur', function(e) {
 
-					var d = data.get(this) || {};
-					d['used'] = true;
-					data.set(this, d);
+				var o = this;
 
-					$inputs.each(function() {
-						var d = data.get(this);
-						if (!d || !d['used']) return false;
+				if (e.which === 9) return true;
 
-						handler.call(this, e);
-					});
+				var d = data.get(this) || {};
+
+				d['used'] = true;
+				data.set(this, d);
+
+				$inputs.each(function() {
+					var d = data.get(this);
+
+					if (!d || !d['used']) {
+						return true;
+					}
+
+					handler.call(this, e);
 				});
 			});
 
