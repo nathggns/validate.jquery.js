@@ -59,6 +59,10 @@
 			},
 			empty: function(text) {
 				return !text || text === '';
+			},
+			numeric: function(text) {
+				var re = /^\d*$/;
+				return re.test(text);
 			}
 		},
 		mods: {
