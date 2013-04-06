@@ -28,7 +28,7 @@
 				return this.data[getKey(key)];
 			},
 			set: function(key, val) {
-				return this.data[getKey(key)] = val;
+				this.data[getKey(key)] = val;
 			}
 		};
 
@@ -159,13 +159,13 @@
 
 				var d = data.get(this) || {};
 
-				d['used'] = true;
+				d.used = true;
 				data.set(this, d);
 
 				$inputs.each(function() {
 					var d = data.get(this);
 
-					if (!d || !d['used']) {
+					if (!d || !d.used) {
 						return true;
 					}
 
