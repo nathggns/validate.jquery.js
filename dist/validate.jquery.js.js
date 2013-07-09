@@ -1,8 +1,8 @@
 /*!
- * jQuery Validate v0.1.0
+ * jQuery Validate v0.1.1
  * https://github.com/nathggns/validate.jquery.js
  * Copyright (c) 2013 Nathaniel Higgins; Licensed MIT
- * Built on 2013-04-06 
+ * Built on 2013-07-09 
  */
 (function(window, document, $, undefined) {
 
@@ -189,6 +189,7 @@
 					});
 
 					if (!passed) {
+						e.stopImmediatePropagation();
 						e.preventDefault();
 						opts.cancel(opts);
 						return false;

@@ -1,6 +1,6 @@
 {
   "name": "validate.jquery.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "title": "jQuery Validate",
   "description": "jQuery plugin that allows you to easily validate forms.",
   "homepage": "https://github.com/nathggns/validate.jquery.js",
