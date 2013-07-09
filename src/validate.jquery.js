@@ -183,6 +183,7 @@
 					});
 
 					if (!passed) {
+						e.stopImmediatePropagation();
 						e.preventDefault();
 						opts.cancel(opts);
 						return false;
